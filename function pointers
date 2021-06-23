@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include<string.h>
+int mystrlen(char str[])
+{
+    int i;
+    for(i=0;str[i]!='\0';i++);
+    return i;
+}
+int main()
+{
+    char str[20]="hi";
+    int (*fp)(char str[]);//don't declare normal fp...use along woth(*fp)
+    fp=&mystrlen;//hve to mention address
+    printf("d=%d\n",mystrlen(str));//direct calling
+    printf("in1=%d\n",fp(str));//indirect calling
+    printf("in2=%d\n",(*fp)(str));//indirect calling
+    return 0;
+}
